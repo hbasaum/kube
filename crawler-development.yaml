@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: crawler
   name: synergychat-crawler
   labels:
     app: synergychat-crawler
@@ -61,7 +62,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                     name: synergychat-crawler-configmap
-                    key: CRAWLER_DB_PATH   
+                    key: CRAWLER_DB_PATH
           volumeMounts:
             - name: cache-volume
               mountPath: /cache
